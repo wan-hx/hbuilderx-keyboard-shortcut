@@ -1,0 +1,54 @@
+{
+    "id": "hbuilderx-keyboard-shortcut-support",
+    "name": "hbuilderx-keyboard-shortcut-support",
+    "description": "HBuilderX自定义快捷键可视化",
+    "displayName": "HBuilderX可视化自定义快捷键",
+    "version": "0.0.3",
+    "publisher": "小弥僧",
+    "engines": {
+        "HBuilderX": "^2.9.2"
+    },
+    "categories": [
+        "Other"
+    ],
+    "main": "./extension",
+    "activationEvents": [
+        "onCommand:extension.keyboardShortcutSupport",
+        "onCustomEditor:HBuilderX - 键盘快捷方式"
+    ],
+    "contributes": {
+        "customEditors": [
+            {
+                "viewType": "HBuilderX - 键盘快捷方式",
+                "selector": [
+                    {
+                        "fileNamePattern": "HBuilderX - 键盘快捷方式"
+                    }
+                ],
+                "priority": "default"
+            }
+        ],
+        "commands": [
+            {
+                "command": "extension.keyboardShortcutSupport",
+                "title": "可视化自定义快捷键"
+            }
+        ],
+        "menus": {
+            "menubar/tool": [
+                {
+                    "command": "extension.keyboardShortcutSupport",
+                    "title": "可视化自定义快捷键",
+                    "group": "shortcuts"
+                }
+            ]
+        }
+    },
+    "extensionDependencies": [
+        "plugin-manager"
+    ],
+    "dependencies": {
+        "ini": "^1.3.6",
+        "json-comments": "^0.2.1"
+    }
+}
