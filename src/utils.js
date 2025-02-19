@@ -7,7 +7,7 @@ const readFile = require("util").promisify(fs.readFile);
 const JSONC = require('json-comments');
 const ini = require('ini');
 
-let { getWebviewContent } = require('./html.js');
+let { getWebviewContent } = require('./webview/html.js');
 const hxCommands = require('./config/config.json');
 
 const osName = os.platform();
