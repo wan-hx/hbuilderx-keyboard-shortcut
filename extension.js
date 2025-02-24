@@ -1,15 +1,20 @@
 const hx = require("hbuilderx");
 const path = require("path");
 
-let CatCustomEditorProviderForWebview = require('./src/webview/main.js');
+// let webviewEditorProvider = require('./src/webview/main.js');
+let vueEditorProvider = require("./src/vue/vueMain.js");
 let checkUpdate = require('./src/common/checkUpdate.js');
 
 function activate(context) {
-    let provider = new CatCustomEditorProviderForWebview({});
-    hx.window.registerCustomEditorProvider("HBuilderX - 键盘快捷方式", provider);
+    
+    let editorFileName = '可视化自定义快捷键视图';
+    try {
+        // hx.window.registerCustomEditorProvider("visualizationOfCustomizableShortcutKeys", new webviewEditorProvider({}));
+        hx.window.registerCustomEditorProvider("visualizationOfCustomizableShortcutKeys", new vueEditorProvider());
+    } catch (error) {};
     
     let keyboardShortcutSupport = hx.commands.registerCommand('extension.keyboardShortcutSupport', (param) => {
-        const cscratFile = path.join(__dirname, 'template', 'HBuilderX - 键盘快捷方式');
+        const cscratFile = path.join(__dirname, 'template', editorFileName);
         hx.workspace.openTextDocument(cscratFile);
         checkUpdate();
     });

@@ -1,7 +1,7 @@
 const hx = require('hbuilderx');
 
 let icon = require('./static/icon.js');
-let { keyBoard, getThemeColor } = require('../utils.js');
+let { keyBoard, getThemeColor } = require('./utils.js');
 
 let CustomDocument = hx.CustomEditor.CustomDocument;
 let CustomEditorProvider = hx.CustomEditor.CustomEditorProvider;
@@ -18,7 +18,7 @@ class CatCustomDocument extends CustomDocument {
     }
 };
 
-class CatCustomEditorProviderForWebview extends CustomEditorProvider {
+class webviewEditorProvider extends CustomEditorProvider {
     constructor(context) {
         super()
     }
@@ -79,4 +79,4 @@ async function setView(webViewPanel) {
 }
 
 
-module.exports = CatCustomEditorProviderForWebview;
+module.exports = webviewEditorProvider;

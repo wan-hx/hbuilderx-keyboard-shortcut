@@ -14,34 +14,28 @@
     "main": "./extension",
     "activationEvents": [
         "onCommand:extension.keyboardShortcutSupport",
-        "onCustomEditor:HBuilderX - 键盘快捷方式"
+        "onCustomEditor:visualizationOfCustomizableShortcutKeys"
     ],
     "contributes": {
         "customEditors": [
             {
-                "viewType": "HBuilderX - 键盘快捷方式",
-                "selector": [
-                    {
-                        "fileNamePattern": "HBuilderX - 键盘快捷方式"
-                    }
-                ],
-                "priority": "default"
+                "viewType": "vue:visualizationOfCustomizableShortcutKeys",
+                "selector": [{
+                    "fileNamePattern": "可视化自定义快捷键视图"
+                }],
+                "priority": 901
             }
         ],
-        "commands": [
-            {
-                "command": "extension.keyboardShortcutSupport",
-                "title": "可视化自定义快捷键"
-            }
-        ],
+        "commands": [{
+            "command": "extension.keyboardShortcutSupport",
+            "title": "可视化自定义快捷键"
+        }],
         "menus": {
-            "menubar/tool": [
-                {
-                    "command": "extension.keyboardShortcutSupport",
-                    "title": "可视化自定义快捷键",
-                    "group": "shortcuts"
-                }
-            ]
+            "menubar/tool": [{
+                "command": "extension.keyboardShortcutSupport",
+                "title": "可视化自定义快捷键",
+                "group": "shortcuts"
+            }]
         }
     },
     "extensionDependencies": [

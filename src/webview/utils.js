@@ -8,7 +8,7 @@ const JSONC = require('json-comments');
 const ini = require('ini');
 
 let { getWebviewContent } = require('./webview/html.js');
-const hxCommands = require('./config/config.json');
+const hxCommands = require('../config/config.json');
 
 const osName = os.platform();
 
@@ -176,10 +176,10 @@ class keyBoard extends Common {
         if (keybindings == 'intellij idea') { this.keyboardProgram = 'webstorm' };
         
         if (osName == 'darwin') {
-            let macPath = `./config/macosx/${this.keyboardProgram}.json`;
+            let macPath = `../config/macosx/${this.keyboardProgram}.json`;
             this.defaultKeys = require(macPath);
         } else {
-            let winPath = `./config/windows/${this.keyboardProgram}.json`;
+            let winPath = `../config/windows/${this.keyboardProgram}.json`;
             this.defaultKeys = require(winPath);
         }
     }
